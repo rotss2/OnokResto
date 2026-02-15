@@ -11,15 +11,16 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'mysecretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@localhost/dbname'
-
+    
     db.init_app(app)
     login_manager.init_app(app)
     socketio.init_app(app)
-
-    from .auth import auth
-    from .views import views
-
+    
+    # Change from relative to absolute imports
+    from auth import auth
+    from views import views
+    
     app.register_blueprint(auth, url_prefix='/auth')
     app.register_blueprint(views)
-
+    
     return app
