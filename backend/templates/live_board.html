@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Board - Restaurant Reservation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Live Notification Board</h1>
+        <div id="live-notifications">
+        </div>
+        <button class="btn btn-warning mt-3" onclick="clearNotifications()">Clear Notifications</button>
+    </div>
+
+    <script>
+        function clearNotifications() {
+            document.getElementById('live-notifications').innerHTML = '';
+        }
+
+        setInterval(function() {
+            const notification = document.createElement('div');
+            notification.classList.add('alert', 'alert-info');
+            notification.textContent = "New Reservation: John Doe, 7:00 PM, Table 5.";
+            document.getElementById('live-notifications').appendChild(notification);
+        }, 5000);
+    </script>
+</body>
+</html>
