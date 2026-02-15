@@ -16,7 +16,6 @@ def create_app():
     login_manager.init_app(app)
     socketio.init_app(app)
     
-    # Change from relative to absolute imports
     from auth import auth
     from views import views
     
